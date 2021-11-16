@@ -2,10 +2,7 @@ import React from 'react';
 import Image1 from '../assets/image1.jpeg';
 import Image2 from '../assets/image5.jpeg';
 import Image3 from '../assets/image6.jpeg';
-import { ReactComponent as Abstract1 } from '../assets/abstract1.svg';
-import { ReactComponent as Abstract2 } from '../assets/abstract2.svg';
-import { ReactComponent as Abstract3 } from '../assets/abstract3.svg';
-import { ReactComponent as Abstract4 } from '../assets/abstract4.svg';
+
 import { ReactComponent as Lines } from '../assets/lines.svg';
 import { ReactComponent as Waves } from '../assets/waves.svg';
 import { Image } from '.';
