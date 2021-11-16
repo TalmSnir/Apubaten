@@ -53,6 +53,7 @@ export default function SocialMenu({
             </StyledLink>
           );
         }
+        return null;
       })}
     </FlexContainer>
   );
