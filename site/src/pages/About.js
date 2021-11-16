@@ -1,18 +1,20 @@
 import React from 'react';
+
 import {
   FlexContainer,
   Gallery,
   Header2,
   Paragraph,
   Blur,
+  SectionContainer,
 } from '../components';
 
 export default function About() {
   return (
-    <section style={{ position: 'relative' }}>
+    <SectionContainer id='about'>
       <Blur top='-5%' />
-      <Blur color='secondary' bottom='10%' right='0px' />
-      <FlexContainer dir='column' padding='1rem' gap='2rem'>
+      <Blur color='tertiary' bottom='-2%' right='0px' />
+      <FlexContainer dir='column' gap='4rem'>
         <FlexContainer dir='column' gap='1rem'>
           <Header2>about</Header2>
           <Paragraph textAlign='center'>
@@ -27,6 +29,6 @@ export default function About() {
         </FlexContainer>
         <Gallery />
       </FlexContainer>
-    </section>
+    </SectionContainer>
   );
 }

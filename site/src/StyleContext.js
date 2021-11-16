@@ -30,7 +30,11 @@ const GlobalStyle = createGlobalStyle`
     height: 100vh;
     font-family: 'Segoe UI', Arial, sans-serif;
     overflow-x:hidden;
+    
     background-color: ${({ theme }) => theme.clrDark};
+  }
+  #root{
+    isolation:isolate;
   }
 `;
 
@@ -66,7 +70,8 @@ const theme = {
   spacingXs: '1rem',
   spacingXxs: '0.5rem',
 
-  zIndexTooltip: '1200',
+  zIndexHeader: '1300',
+  zIndexNav: '1200',
   zIndexPanel: '1100',
   zIndexModal: '1000',
   zIndexTop: '800',

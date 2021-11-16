@@ -5,6 +5,10 @@ export const StyledLink = styled.a.attrs(props => {
 })`
   text-decoration: none;
   color: inherit;
+  transition: transform 0.1s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 export const Image = styled.img`
@@ -107,4 +111,13 @@ export const ButtonLink = styled(StyledLink)`
   padding: ${({ theme }) => `${theme.spacingXxs} ${theme.spacingSm}`};
   inline-size: ${props => (props.fullWidth ? '100%' : '')};
   text-transform: capitalize;
+  cursor: pointer;
+`;
+
+export const SectionContainer = styled.section`
+  margin: 0 auto;
+  max-inline-size: 1200px;
+  padding: ${({ theme }) => `${theme.spacingSm} ${theme.spacingXs}`};
+  margin: ${props => props.margin || ''};
+  position: relative;
 `;

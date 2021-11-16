@@ -14,12 +14,14 @@ const IconContainer = styled(FlexContainer)`
   & > svg {
     inline-size: ${props => props.size || '16px'};
     block-size: ${props => props.size || '16px'};
-    fill: ${props =>
-      props.footer ? props.theme.clrDark : props.theme.clrLight};
-    filter: ${props => (props.footer ? '' : 'brightness(50%)')};
-  }
-  a:hover {
-    filter: invert(180deg);
+    fill: ${({ theme }) => theme.clrLight};
+    filter: ${props => (props.footer ? '' : 'brightness(70%)')};
+    transition: 0.1s ease-in-out;
+    &:hover {
+      filter: unset;
+      fill: ${({ theme }) => theme.clrPrimary};
+      transform: scale(1.1);
+    }
   }
 `;
 export default function SocialMenu({
@@ -40,14 +42,17 @@ export default function SocialMenu({
           appleMusic: FaMusic,
         };
         const Icon = iconName[link.name];
-
-        return (
-          <StyledLink href={link.url} key={link.name}>
-            <IconContainer size={iconSize} footer={footer}>
-              <Icon />
-            </IconContainer>
-          </StyledLink>
-        );
+        if (
+          !((link.name === 'spotify' || link.name === 'appleMusic') && footer)
+        ) {
+          return (
+            <StyledLink href={link.url} key={link.name}>
+              <IconContainer size={iconSize} footer={footer}>
+                <Icon />
+              </IconContainer>
+            </StyledLink>
+          );
+        }
       })}
     </FlexContainer>
   );

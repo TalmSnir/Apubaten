@@ -6,6 +6,7 @@ import {
   Header2,
   Paragraph,
   ButtonLink,
+  SectionContainer,
 } from './baseComponents';
 import SocialMenu from './SocialMenu';
 import ShowTicket from './ShowTicket';
@@ -15,8 +16,11 @@ import Logo from './Logo';
 import Nav from './Nav';
 import Blur from './Blur';
 import Video from './Video';
+import Header from './Header';
+import Soundwave from './Soundwave';
 
 export {
+  Header,
   StyledLink,
   ButtonLink,
   Image,
@@ -32,4 +36,6 @@ export {
   Nav,
   Blur,
   Video,
+  SectionContainer,
+  Soundwave,
 };
