@@ -37,8 +37,8 @@ const showsData = [
 export default function ShowTicket() {
   return (
     <FlexContainer gap='2rem' dir='column' inlineSize='100%' ai='stretch'>
-      {showsData.map(show => (
-        <Ticket gap='0.5rem' dir='column'>
+      {showsData.map((show, id) => (
+        <Ticket gap='0.5rem' dir='column' key={id}>
           <FlexContainer inlineSize='100%' dir='column' padding='2rem'>
             <Location>{show.location.city}</Location>
             <span>{show.location.place}</span>

@@ -5,6 +5,7 @@ const GlobalStyle = createGlobalStyle`
     scroll-behavior: smooth;
     overscroll-behavior: none;
     overflow-x:hidden;
+    height:100%;
     
   }
   * {
@@ -27,14 +28,17 @@ const GlobalStyle = createGlobalStyle`
     }
   }
   body {
-    height: 100vh;
+    min-height: 100vh;
+    height:100%;
     font-family: 'Segoe UI', Arial, sans-serif;
     overflow-x:hidden;
-    
+    overscroll-behavior: none;
     background-color: ${({ theme }) => theme.clrDark};
   }
   #root{
     isolation:isolate;
+    overscroll-behavior: none;
+    height:100%;
   }
 `;
 
