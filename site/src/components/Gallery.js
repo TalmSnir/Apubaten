@@ -28,7 +28,7 @@ const GalleryContainer = styled.div`
     inline-size: 50%;
     top: 0;
     right: 0;
-    z-index: 0;
+    z-index: ${({ theme }) => theme.zIndexBase};
     border-left: 4px solid ${({ theme }) => theme.clrTertiary};
   }
   img:nth-child(3) {
@@ -37,7 +37,7 @@ const GalleryContainer = styled.div`
     aspect-ratio: 3/2;
     bottom: -20px;
     left: -10%;
-    z-index: 1;
+    z-index: ${({ theme }) => theme.zIndexTop};
     border-right: 4px solid ${({ theme }) => theme.clrSecondary};
   }
 `;
@@ -48,7 +48,7 @@ const AbstractOne = styled(Lines)`
   bottom: 40px;
   opacity: 0.7;
   right: 40%;
-  z-index: -2;
+  z-index: ${({ theme }) => theme.zIndexBehind}; ;
 `;
 const AbstractTwo = styled(Waves)`
   block-size: 200px;
@@ -58,7 +58,7 @@ const AbstractTwo = styled(Waves)`
   opacity: 0.7;
   left: 50%;
   transform: rotate(-30deg);
-  z-index: 10000;
+  z-index: ${({ theme }) => theme.zIndexTop};
 `;
 export default function Gallery() {
   return (

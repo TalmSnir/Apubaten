@@ -14,7 +14,7 @@ const TicketsContainer = styled.div`
   &::before {
     content: '';
     position: absolute;
-    z-index: -1;
+    z-index: ${({ theme }) => theme.zIndexBehind};
     top: -8px;
     left: -8px;
     inline-size: 60%;
@@ -29,7 +29,7 @@ const TicketsContainer = styled.div`
   &::after {
     content: '';
     position: absolute;
-    z-index: -1;
+    z-index: ${({ theme }) => theme.zIndexBehind};
     bottom: -8px;
     right: -8px;
     inline-size: 60%;

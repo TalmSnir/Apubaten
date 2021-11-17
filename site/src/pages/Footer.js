@@ -7,7 +7,7 @@ const FooterContainer = styled.footer`
   flex-direction: column;
   align-items: center;
   position: relative;
-  z-index: -1;
+  z-index: ${({ theme }) => theme.zIndexBase};
   gap: ${({ theme }) => theme.spacingMd};
   padding: ${({ theme }) => `${theme.spacingSm} ${theme.spacingXs}`};
   background-color: ${({ theme }) => theme.clrTertiary};
@@ -17,7 +17,7 @@ const FooterContainer = styled.footer`
   }
   & > div:last-child {
     position: absolute;
-    z-index: -1;
+    z-index: ${({ theme }) => theme.zIndexBehind};
     top: 40%;
   }
 `;

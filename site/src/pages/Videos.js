@@ -10,6 +10,7 @@ const AbstractOne = styled(ArrowUp)`
   position: absolute;
   bottom: -20px;
   left: 0;
+  z-index: ${({ theme }) => theme.zIndexTop};
 `;
 const AbstractTwo = styled(ArrowsLeft)`
   inline-size: 80px;

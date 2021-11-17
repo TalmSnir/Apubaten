@@ -4,7 +4,7 @@ const GlobalStyle = createGlobalStyle`
   html {
     scroll-behavior: smooth;
     overscroll-behavior: none;
-    overflow-x:hidden;
+    overflow: hidden;
     height:100%;
     
   }
@@ -33,6 +33,8 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Segoe UI', Arial, sans-serif;
     overflow-x:hidden;
     overscroll-behavior: none;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
     background-color: ${({ theme }) => theme.clrDark};
   }
   #root{
@@ -76,10 +78,11 @@ const theme = {
 
   zIndexHeader: '1300',
   zIndexNav: '1200',
-  zIndexPanel: '1100',
+  xIndexAbstractElement: '1100',
   zIndexModal: '1000',
-  zIndexTop: '800',
-  zIndexTab: '700',
+  zIndexTop: '1',
+  zIndexBase: '0',
+  zIndexBehind: '-1',
 
   bpSm: '375px',
   bpMd: '700px',
