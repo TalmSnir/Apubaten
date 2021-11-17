@@ -2,10 +2,19 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Nav, Logo } from '.';
 import { FaBars, FaTimes } from 'react-icons/fa';
+
 const HeaderContainer = styled.header`
+  position: fixed;
+  z-index: ${({ theme }) => theme.zIndexHeader};
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: ${({ theme }) => theme.spacingXs};
+  background-color: ${props => (props.scrolled ? '' : props.theme.clrDark)};
+  transition: background-color 0.1s ease-in;
 `;
 const MenuButton = styled.button`
   appearance: none;
@@ -23,7 +32,7 @@ const MenuButton = styled.button`
     z-index: ${({ theme }) => theme.zIndexHeader};
   }
 `;
-export default function Header() {
+export default function Header({ scrolled }) {
   const [showMenu, setShowMenu] = useState(false);
 
   const handleClick = () => {
@@ -33,7 +42,7 @@ export default function Header() {
     document.body.style.overflowY = showMenu ? 'hidden' : 'visible';
   }, [showMenu]);
   return (
-    <HeaderContainer>
+    <HeaderContainer scrolled={scrolled}>
       <Logo className='logo'>Apubaten</Logo>
       <MenuButton onClick={handleClick}>
         {showMenu ? <FaTimes /> : <FaBars />}

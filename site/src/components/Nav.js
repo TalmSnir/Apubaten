@@ -19,7 +19,7 @@ const Navigation = styled.nav`
   position: fixed;
   inset: 0;
   height: 100%;
-  padding-block-start: ${({ theme }) => theme.spacingSm};
+  padding-block-start: ${({ theme }) => theme.spacingLg};
   background-color: ${({ theme }) => theme.clrDark};
   z-index: ${({ theme }) => theme.zIndexNav};
   visibility: hidden;
@@ -30,11 +30,8 @@ const NavList = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 2rem;
   width: 100%;
-  height: 100vh;
 `;
 const NavListItem = styled.li`
   padding: 0.5em;

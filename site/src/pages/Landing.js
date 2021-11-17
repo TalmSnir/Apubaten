@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { SocialMenu, Image, Badges, Header } from '../components';
 import HeroImage from '../assets/image3.jpeg';
 import AlbumCover from '../assets/albumImage.png';
 import styled from 'styled-components';
-
+import { useIntersection } from '../hooks';
 const Container = styled.main`
   height: 100vh;
   background-image: url(${HeroImage});
@@ -14,7 +14,7 @@ const Container = styled.main`
   background-blend-mode: overlay;
 
   display: grid;
-  padding: 1rem;
+  padding: 0 1rem 1rem;
   grid-template: auto 1fr 1fr 1fr / repeat(3, 1fr);
   align-items: center;
   position: relative;
@@ -56,24 +56,32 @@ const Banner = styled.div`
   position: absolute;
   inline-size: 100%;
   transform: rotate(-20deg);
-  top: 28%;
   left: 10%;
-  z-index: ${({ theme }) => theme.zIndexTop};
+  /* z-index: ${({ theme }) => theme.zIndexTop}; */
 `;
 
 export default function Landing() {
+  const ref = useRef(null);
+  const isIntersecting = useIntersection(ref, {
+    threshold: 0,
+    rootMargin: '-70px 0px 0px 0px',
+  });
   return (
     <Container id='home'>
-      <Header />
+      <Header scrolled={isIntersecting} />
+      <div
+        ref={ref}
+        style={{ gridRow: 2, gridColumn: 1, visibility: 'hidden' }}></div>
       <SocialMenu
         className='landing-socials'
         direction='column'
         iconSize='32px'
         ai='flex-start'
       />
+      <Image src={AlbumCover} inlineSize='250px' blockSize='100%' />
 
-      <Image src={AlbumCover} inlineSize='80%' blockSize='100%' />
       <Badges className='badges' dir='column' />
+
       <Banner>
         it's not the time
         <br /> to fall in love
