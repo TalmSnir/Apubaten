@@ -5,8 +5,8 @@ const GlobalStyle = createGlobalStyle`
     scroll-behavior: smooth;
     overscroll-behavior: none;
     overflow: hidden;
-    // height:100%;
-    height: -webkit-fill-available;
+    height:100%;
+   
   }
   * {
     box-sizing: border-box;
@@ -31,8 +31,6 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     height: 100%;
-    min-height: 100vh;
-  min-height: -webkit-fill-available;
     scroll-behavior: smooth;
     font-family: 'Segoe UI', Arial, sans-serif;
     overflow-x:hidden;
