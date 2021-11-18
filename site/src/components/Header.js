@@ -26,8 +26,8 @@ const MenuButton = styled.button`
   justify-content: center;
   z-index: ${({ theme }) => theme.zIndexHeader};
   & > * {
-    inline-size: 40px;
-    block-size: 40px;
+    inline-size: 32px;
+    block-size: 32px;
     fill: ${({ theme }) => theme.clrLight};
     z-index: ${({ theme }) => theme.zIndexHeader};
   }

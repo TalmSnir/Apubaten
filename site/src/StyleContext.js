@@ -12,36 +12,36 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    scrollbar-width: thin;
-    scrollbar-color: ${({ theme }) => ` ${theme.clrDark} ${theme.clrLight} `};
-    &::-webkit-scrollbar {
-      width: 12px;
-    }
-    &::-webkit-scrollbar-track {
-      background:${({ theme }) => theme.clrDark};
-      
-      
-    }
-    &::-webkit-scrollbar-thumb {
-      background: ${({ theme }) => theme.clrLight};
-      border-radius:3rem;
-    }
+    @media screen and (min-width:600px){
+      scrollbar-width: thin;
+      scrollbar-color: ${({ theme }) => ` ${theme.clrDark} ${theme.clrLight} `};
+      &::-webkit-scrollbar {
+        width: 12px;
+      }
+      &::-webkit-scrollbar-track {
+        background:${({ theme }) => theme.clrDark};
+        
+        
+      }
+      &::-webkit-scrollbar-thumb {
+        background: ${({ theme }) => theme.clrLight};
+        border-radius:3rem;
+      }}
+    
   }
   body {
-    min-height: 100vh;
-    height:100%;
+    height: 100%;
+    scroll-behavior: smooth;
     font-family: 'Segoe UI', Arial, sans-serif;
     overflow-x:hidden;
     overscroll-behavior: none;
-    overflow-y: scroll;
+    overflow-y: auto;
+ 
     -webkit-overflow-scrolling: touch;
     background-color: ${({ theme }) => theme.clrDark};
   }
-  #root{
-    isolation:isolate;
-    overscroll-behavior: none;
-    height:100%;
-  }
+ 
+
 `;
 
 const theme = {
