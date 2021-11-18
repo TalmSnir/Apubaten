@@ -5,8 +5,8 @@ const GlobalStyle = createGlobalStyle`
     scroll-behavior: smooth;
     overscroll-behavior: none;
     overflow: hidden;
-    height:100%;
-    
+    // height:100%;
+    height: -webkit-fill-available;
   }
   * {
     box-sizing: border-box;
@@ -31,12 +31,13 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     height: 100%;
+    min-height: 100vh;
+  min-height: -webkit-fill-available;
     scroll-behavior: smooth;
     font-family: 'Segoe UI', Arial, sans-serif;
     overflow-x:hidden;
     overscroll-behavior: none;
     overflow-y: auto;
- 
     -webkit-overflow-scrolling: touch;
     background-color: ${({ theme }) => theme.clrDark};
   }
