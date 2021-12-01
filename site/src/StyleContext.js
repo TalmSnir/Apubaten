@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle`
     scroll-behavior: smooth;
     overscroll-behavior: none;
     height: 100%;
- 
+    overflow-x:hidden;
    
   }
   * {
