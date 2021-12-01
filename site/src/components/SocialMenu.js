@@ -17,6 +17,10 @@ const IconContainer = styled(FlexContainer)`
     fill: ${({ theme }) => theme.clrLight};
     filter: ${props => (props.footer ? '' : 'brightness(70%)')};
     transition: 0.1s ease-in-out;
+    @media screen and (min-width: ${({ theme }) => theme.bpMd}) {
+      inline-size: 40px;
+      block-size: 40px;
+    }
     &:hover {
       filter: unset;
       fill: ${({ theme }) => theme.clrPrimary};

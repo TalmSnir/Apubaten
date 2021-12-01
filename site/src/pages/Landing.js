@@ -1,5 +1,11 @@
 import React, { useRef } from 'react';
-import { SocialMenu, Image, Badges, Header } from '../components';
+import {
+  SocialMenu,
+  Image,
+  Badges,
+  Header,
+  FlexContainer,
+} from '../components';
 import HeroImage from '../assets/image3.jpeg';
 import AlbumCover from '../assets/albumImage.png';
 import styled from 'styled-components';
@@ -18,6 +24,9 @@ const Container = styled.main`
   grid-template: auto 1fr 1fr 1fr / repeat(3, 1fr);
   align-items: center;
   position: relative;
+  @media screen and (min-width: ${({ theme }) => theme.bpMd}) {
+    padding: ${({ theme }) => `${theme.spacingSm} ${theme.spacingMd}`};
+  }
   header {
     grid-row: 1;
     grid-column: 1/-1;
@@ -27,7 +36,40 @@ const Container = styled.main`
     grid-column: 1;
     justify-self: start;
   }
-
+  @media screen and (min-width: ${({ theme }) => theme.bpSm}) {
+    .landing-socials {
+      grid-row: 3/4;
+      gap: ${({ theme }) => theme.spacingSm};
+    }
+  }
+`;
+const Banner = styled.div`
+  font-size: clamp(2.5rem, 8vw, 10rem);
+  opacity: 0.3;
+  color: ${({ theme }) => theme.clrPrimary};
+  text-transform: capitalize;
+  font-weight: ${({ theme }) => theme.fwLg};
+  position: absolute;
+  inline-size: 100%;
+  transform: rotate(-20deg);
+  left: 10%;
+`;
+const AlbumMusicContainer = styled(FlexContainer)`
+  grid-row: 3/-1;
+  grid-column: 2;
+  @media screen and (min-width: ${({ theme }) => theme.bpSm}) {
+    & > .badges {
+      flex-direction: row;
+    }
+  }
+  @media screen and (min-width: ${({ theme }) => theme.bpLg}) {
+    grid-column: 3;
+  }
+  & > img {
+    box-shadow: 8px 8px 0 ${({ theme }) => theme.clrPrimary},
+      16px 16px 0 ${({ theme }) => theme.clrTertiary},
+      -4px -4px 0 ${({ theme }) => theme.clrSecondary};
+  }
   & > .badges {
     grid-row: 4;
     grid-column: 1/-1;
@@ -37,27 +79,6 @@ const Container = styled.main`
       filter: drop-shadow(0 0 6px ${({ theme }) => theme.clrPrimary});
     }
   }
-
-  & > img {
-    grid-row: 3;
-    grid-column: 1/-1;
-    justify-self: center;
-    box-shadow: 8px 8px 0 ${({ theme }) => theme.clrPrimary},
-      16px 16px 0 ${({ theme }) => theme.clrTertiary},
-      -4px -4px 0 ${({ theme }) => theme.clrSecondary};
-  }
-`;
-const Banner = styled.div`
-  font-size: 2.5rem;
-  opacity: 0.3;
-  color: ${({ theme }) => theme.clrPrimary};
-  text-transform: capitalize;
-  font-weight: ${({ theme }) => theme.fwLg};
-  position: absolute;
-  inline-size: 100%;
-  transform: rotate(-20deg);
-  left: 10%;
-  /* z-index: ${({ theme }) => theme.zIndexTop}; */
 `;
 
 export default function Landing() {
@@ -78,10 +99,16 @@ export default function Landing() {
         iconSize='32px'
         ai='flex-start'
       />
-      <Image src={AlbumCover} inlineSize='250px' blockSize='100%' />
+      <AlbumMusicContainer dir='column'>
+        <Image
+          src={AlbumCover}
+          maxInlineSize='400px'
+          inlineSize='60vw'
+          ratio='1/1'
+        />
 
-      <Badges className='badges' dir='column' />
-
+        <Badges className='badges' dir='column' />
+      </AlbumMusicContainer>
       <Banner>
         it's not the time
         <br /> to fall in love

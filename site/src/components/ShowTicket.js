@@ -16,6 +16,14 @@ const Ticket = styled(FlexContainer)`
     width: 100%;
     background-color: ${({ theme }) => theme.clrLight};
   }
+  @media screen and (min-width: ${({ theme }) => theme.bpMd}) {
+    & > div:first-child {
+      flex: 1;
+    }
+    & > div:nth-child(2) {
+      flex: 2;
+    }
+  }
 `;
 const showsData = [
   {
@@ -38,7 +46,7 @@ export default function ShowTicket() {
   return (
     <FlexContainer gap='2rem' dir='column' inlineSize='100%' ai='stretch'>
       {showsData.map((show, id) => (
-        <Ticket gap='0.5rem' dir='column' key={id}>
+        <Ticket gap='0.5rem' dir='column' key={id} bpLgRow>
           <FlexContainer inlineSize='100%' dir='column' padding='2rem'>
             <Location>{show.location.city}</Location>
             <span>{show.location.place}</span>

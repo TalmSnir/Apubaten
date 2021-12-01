@@ -1,21 +1,44 @@
 import React from 'react';
-
+import styled from 'styled-components';
 import {
   FlexContainer,
   Gallery,
   Header2,
   Paragraph,
   Blur,
-  SectionContainer,
+  sectionMixin,
 } from '../components';
 
+const SectionContainer = styled.section`
+  ${sectionMixin};
+  background-color: ${({ theme }) => theme.clrPrimary};
+  background-image: ${({ theme }) =>
+    `linear-gradient(to bottom right , ${theme.clrDark} 80%, ${theme.clrPrimary} 80% 100% )`};
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: 300% 100%;
+  height: 100vh;
+`;
+const Flex = styled(FlexContainer)`
+  height: 100%;
+  & > div:first-child {
+    align-self: flex-start;
+    flex: 2;
+    margin-inline-start: -10vw;
+    z-index: ${({ theme }) => theme.zIndexTop};
+  }
+  & > div:nth-child(2) {
+    align-self: flex-end;
+    flex: 2.5;
+  }
+`;
 export default function About() {
   return (
-    <SectionContainer id='about'>
+    <SectionContainer id='about' bgImage='gradientAbout'>
       <Blur top='-5%' />
       <Blur color='tertiary' bottom='-2%' right='0px' />
-      <FlexContainer dir='column' gap='4rem'>
-        <FlexContainer dir='column' gap='1rem'>
+      <Flex dir='column' gap='1rem' bpLgRow reverse>
+        <FlexContainer dir='column' gap='1rem' bpLgCol>
           <Header2>about</Header2>
           <Paragraph textAlign='center'>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora
@@ -28,7 +51,7 @@ export default function About() {
           </Paragraph>
         </FlexContainer>
         <Gallery />
-      </FlexContainer>
+      </Flex>
     </SectionContainer>
   );
 }

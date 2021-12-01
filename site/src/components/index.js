@@ -6,7 +6,8 @@ import {
   Header2,
   Paragraph,
   ButtonLink,
-  SectionContainer,
+  sectionMixin,
+  innerSectionMixin,
 } from './baseComponents';
 import SocialMenu from './SocialMenu';
 import ShowTicket from './ShowTicket';
@@ -36,6 +37,7 @@ export {
   Nav,
   Blur,
   Video,
-  SectionContainer,
+  sectionMixin,
   Soundwave,
+  innerSectionMixin,
 };

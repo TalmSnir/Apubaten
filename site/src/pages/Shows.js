@@ -3,50 +3,56 @@ import styled from 'styled-components';
 import {
   FlexContainer,
   Header2,
-  SectionContainer,
   ShowTicket,
+  sectionMixin,
 } from '../components';
+
+const SectionContainer = styled.section`
+  ${sectionMixin};
+
+  background-image: ${({ theme }) =>
+    `linear-gradient(to top left , transparent 80%, ${theme.clrPrimary} 80% 100% ), linear-gradient(to bottom left , transparent 90%, ${theme.clrSecondary} 90% 100% )`};
+  background-repeat: no-repeat;
+  background-position: left top, left bottom;
+  background-size: 300% 100%, 600% 100%;
+  min-height: 100vh;
+`;
 
 const TicketsContainer = styled.div`
   position: relative;
   width: 100%;
-
-  &::before {
-    content: '';
-    position: absolute;
-    z-index: ${({ theme }) => theme.zIndexBehind};
-    top: -8px;
-    left: -8px;
-    inline-size: 60%;
-    aspect-ratio: 1/1;
-    background-color: transparent;
-    border-width: 16px;
-    border-style: solid;
-    border-color: ${({ theme }) => theme.clrTertiary} transparent transparent
-      ${({ theme }) => theme.clrTertiary};
-    border-radius: ${({ theme }) => theme.brRound};
-  }
-  &::after {
-    content: '';
-    position: absolute;
-    z-index: ${({ theme }) => theme.zIndexBehind};
-    bottom: -8px;
-    right: -8px;
-    inline-size: 60%;
-    aspect-ratio: 1/1;
-    background-color: transparent;
-    border-width: 16px;
-    border-style: solid;
-    border-color: transparent ${({ theme }) => theme.clrSecondary}
-      ${({ theme }) => theme.clrSecondary} transparent;
-    border-radius: ${({ theme }) => theme.brRound};
+  z-index: ${({ theme }) => theme.zIndexTop};
+  & > div {
+    & > div {
+      :first-child {
+        border-width: 8px;
+        border-style: solid;
+        border-color: ${({ theme }) => theme.clrSecondary} transparent
+          transparent ${({ theme }) => theme.clrSecondary};
+      }
+      :last-child {
+        border-width: 8px;
+        border-style: solid;
+        border-color: transparent ${({ theme }) => theme.clrTertiary}
+          ${({ theme }) => theme.clrTertiary} transparent;
+      }
+    }
   }
 `;
+
+const Title = styled(Header2)`
+  @media screen and (min-width: ${({ theme }) => theme.bpLg}) {
+    writing-mode: vertical-lr;
+    transform: rotateZ(180deg);
+    font-size: ${({ theme }) => `calc(${theme.fsMd}*${theme.mdFc})`};
+  }
+`;
+
 export default function Shows() {
   return (
-    <SectionContainer id='upcoming-shows'>
-      <FlexContainer dir='column' gap='2rem'>
-        <Header2>upcoming shows</Header2>
+    <SectionContainer id='upcoming-shows' bgImage='gradientShows'>
+      <FlexContainer dir='column' gap='2rem' bpLgRow>
+        <Title>upcoming shows</Title>
         <TicketsContainer>
           <ShowTicket />
         </TicketsContainer>

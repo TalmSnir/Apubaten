@@ -25,6 +25,29 @@ const Navigation = styled.nav`
   visibility: hidden;
   opacity: 0;
   animation: ${props => (props.show ? Open : Close)} 0.2s ease-in-out forwards;
+
+  @media screen and (min-width: ${({ theme }) => theme.bpLg}) {
+    position: relative;
+    visibility: visible;
+    opacity: 1;
+    animation: unset;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: unset;
+    ul {
+      flex-direction: row;
+      gap: ${({ theme }) => theme.spacingSm};
+      li {
+        width: unset;
+        font-size: ${({ theme }) => `calc(${theme.fsSm}*${theme.mdFc})`};
+      }
+      li:last-child {
+        display: none;
+      }
+    }
+  }
 `;
 const NavList = styled.ul`
   list-style: none;

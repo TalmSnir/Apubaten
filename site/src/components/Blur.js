@@ -23,6 +23,11 @@ const Blur = styled.div`
         return props.theme.clrPrimary;
     }
   }};
+  @media screen and (min-width: ${({ theme }) => theme.bpMd}) {
+    inline-size: 200px;
+    block-size: 200px;
+    filter: blur(70px);
+  }
 `;
 
 export default Blur;

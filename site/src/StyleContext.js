@@ -4,17 +4,20 @@ const GlobalStyle = createGlobalStyle`
   html {
     scroll-behavior: smooth;
     overscroll-behavior: none;
-    overflow: hidden;
     height: 100%;
+ 
    
   }
   * {
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
     box-sizing: border-box;
     padding: 0;
     margin: 0;
     @media screen and (min-width:600px){
       scrollbar-width: thin;
-      scrollbar-color: ${({ theme }) => ` ${theme.clrDark} ${theme.clrLight} `};
+      scrollbar-color: ${({ theme }) => ` transparent ${theme.clrLight} `};
       &::-webkit-scrollbar {
         width: 12px;
       }
@@ -34,12 +37,14 @@ const GlobalStyle = createGlobalStyle`
     scroll-behavior: smooth;
     font-family: 'Segoe UI', Arial, sans-serif;
     overflow-x:hidden;
-    overscroll-behavior: none;
     overflow-y: auto;
+    overscroll-behavior: none;
     -webkit-overflow-scrolling: touch;
     background-color: ${({ theme }) => theme.clrDark};
   }
- 
+ #root{
+   height:100%;
+ }
 
 `;
 
@@ -79,11 +84,13 @@ const theme = {
   zIndexNav: '1200',
   xIndexAbstractElement: '1100',
   zIndexModal: '1000',
+  zIndexTop2: '2',
   zIndexTop: '1',
   zIndexBase: '0',
   zIndexBehind: '-1',
 
-  bpSm: '375px',
+  bpXsm: '375px',
+  bpSm: '600px',
   bpMd: '700px',
   bpLg: '1000px',
   bpXl: '1200px',
